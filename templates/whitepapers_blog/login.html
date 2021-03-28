@@ -1,0 +1,17 @@
+{% extends 'whitepapers_blog/base.html' %}
+{% block body_block %}
+
+<h1>login </h1>
+<form action ="{% url 'whitepapers_blog:user_login' %}" method="post">
+    {% csrf_token %}
+    <label for="username"> Username: </label>
+    <input type="text" name="username" placeholder="Enter Username">
+
+    <label for="password"> Password : </label>
+    <input type="password" name="password">
+
+    <input type="submit" name="" value="Login">
+</form>
+
+
+{% endblock %}
