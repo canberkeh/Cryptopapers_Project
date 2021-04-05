@@ -13,6 +13,9 @@ class WhitePapers(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = 'WhitePapers'
+        verbose_name_plural = 'WhitePapers'
 
 class UserProfileInfo(models.Model):
 

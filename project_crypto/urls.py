@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from whitepapers_blog import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'WhitePapers', views.WhitePapersViewSet)
 
 urlpatterns = [
     path('asd', include('whitepapers_blog.urls')),
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+     url(r'^', include(router.urls)),
     # url(r'^whitepapers_blog/', include('whitepapers_blog.urls')),
 ]

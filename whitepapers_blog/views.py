@@ -3,6 +3,15 @@ from whitepapers_blog.forms import UserForm
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from whitepapers_blog.forms import UserForm, UserProfileInfoForm
+from rest_framework import viewsets
+from whitepapers_blog.models import WhitePapers
+from whitepapers_blog.serializers import WhitePapersSerializer
+
+
+class WhitePapersViewSet(viewsets.ModelViewSet):
+    queryset = WhitePapers.objects.all()
+    serializer_class = WhitePapersSerializer
+
 
 #login
 from django.urls import reverse 

@@ -126,6 +126,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Authentication for API 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
