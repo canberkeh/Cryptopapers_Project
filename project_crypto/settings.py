@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitepapers_blog',
+    'rest_framework_swagger',
     'rest_framework',
+    'coinrank',
 ]
 
 MIDDLEWARE = [
@@ -126,11 +128,34 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#Authentication for API 
+#Authentication for API.
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ]
+}
+
+#Swagger Settings
+SWAGGER_SETTINGS = {
+    "exclude_namespaces": ['rest_logout', ],  # List URL namespaces to ignore
+    "SUPPORTED_SUBMIT_METHODS": [  # Specify which methods to enable in Swagger UI
+        'get',
+        'post',
+        'put',
+        'delete'
+    ],
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
+    'USE_SESSION_AUTH': True,
+    'JSON_EDITOR': True,
+    'REFETCH_SCHEMA_ON_LOGOUT': True,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+
 }
 
 # Internationalization

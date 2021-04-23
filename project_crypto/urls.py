@@ -18,15 +18,24 @@ from django.urls import path, include
 from django.conf.urls import url
 from whitepapers_blog import views
 from rest_framework import routers
+from rest_framework_swagger.views import get_swagger_view
+from django.conf.urls import url, include
+from whitepapers_blog.views import AuthUserAPIView, get_prices, Vectorspace_Summerizer
 
+schema_view = get_swagger_view(title='whitepapers_blog')
 router = routers.DefaultRouter()
 router.register(r'WhitePapers', views.WhitePapersViewSet)
 
 urlpatterns = [
     path('asd', include('whitepapers_blog.urls')),
     path('admin/', admin.site.urls),
+    # path('coinrank/', include('coinrank.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-     url(r'^', include(router.urls)),
+    url(r'^', include(router.urls)),
+    url(r'^api/docs/', schema_view, name='api-doc'),
+    url(r'^user/auth/login?$', AuthUserAPIView.as_view(), name='login_user'),
+    url(r'^trade/', views.get_prices, name='trade'),
+    url(r'^test/', views.Vectorspace_Summerizer, name='test'),
     # url(r'^whitepapers_blog/', include('whitepapers_blog.urls')),
 ]
