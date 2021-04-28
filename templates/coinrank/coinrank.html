@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'trading.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Ranking Index</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="{% url 'index' %}">Homepage</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="main w-75 mx-auto my-4">
+        <div class="row">
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <td class="a"><b> Name </b></td>
+                        <td><b> Likes </b></td>
+                        <td><b> Dislikes </b></td>
+                        <td><b> Hodlers </b></td>
+                        <td><b> Total Points </b></td>
+                        <td><b> Comments </b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rank in coinrank_items %}
+                    <tr>
+                        <td><b>{{ rank.name }}</b></td>
+                        <td><b>{{ rank.like }} <button type="button" method='POST'>Like</button></b></td>
+                        <td><b>{{ rank.dislike }}<button type="button">Dislike</button></b></td>
+                        <td><b>{{ rank.hodl }}<button type="button" >Hodl</button></b></td>
+                        <td><b>{{ rank.total_points }}</b></td>
+                        <td><b><button type="button">Show Comments</button></b></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

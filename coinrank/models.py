@@ -13,3 +13,9 @@ class CoinRanking(models.Model):
         
     def __str__(self):
         return self.name
+
+    # def like(self):
+    #     likes = self.like
+    #     likes = likes + 1
+    #     likes.save()
+
