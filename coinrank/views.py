@@ -16,12 +16,19 @@ def create_new_coin(request):
             create = form.save(commit=False)
             create.save()
             return redirect('/coinrank')
+    else:
+        form = CoinrankForm()
     return render(request, 'coinrank/create_new_coin.html', {'create_new_coin': form })
 
 def delete_coin(request):
     pass
 
-#  list = ToDoList(user=request.user)
+# def get(self, request, *args, **kwargs):
+#     photo = Photos.objects.get(pk=value)
+#     photo.likes_count += 1
+#     photo.save()
+#     return JsonResponse({'action': 'success'}, safe=False)
+# #  list = ToDoList(user=request.user)
 #         form = ToDoListForm(request.POST, instance=list)
 
 ###############################################################333

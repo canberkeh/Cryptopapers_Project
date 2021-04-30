@@ -1,60 +1,62 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'trading.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Trading </title>
 </head>
-<body>
-    <div class="sidenav">
-        <a href="{% url 'index' %}">Homepage</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-    </div>
-    <div class="main w-75 mx-auto my-4">
-        <div class="row">
-                <table class="table">
-                    <thead class="thead">
-                        <tr>
-                            <td class="a"><b> Name </b></td>
-                            <td><b> Symbol </b></td>
-                            <td><b> Max Supply </b></td>
-                            <td><b> Circulating/Dolaşım Supply </b></td>
-                            <td><b> Total Supply </b></td>
-                            <td><b> PRICE USD </b></td>
-                            <td><b> Volume 24h </b></td>
-                            <td><b> Percent Change 24h </b></td>
-                            <td><b> Market Cap</b></td>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for coin in data.data %}
-                            <tr>
-                                <td><b>{{ coin.name }}</b></td>
-                                <td><b>{{ coin.symbol }}</b></td>
-                                <td><b>{{ coin.max_supply }}</b></td>
-                                <td><b>{{ coin.circulating_supply }}</b></td>
-                                <td><b>{{ coin.total_supply }}</b></td>
-                                <td><b>{{ coin.quote.USD.price }}</b></td>
-                                <td><b>{{ coin.quote.USD.volume_24h }}</b></td>
-                                <td><b>{{ coin.quote.USD.percent_change_24h }}</b></td>
-                                <td><b>{{ coin.quote.USD.market_cap }}</b></td>
-                            </tr>
-                        {% endfor %} 
-                    </tbody>
-                    </table>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="/coinrank">CoinRanking</a>
+        <a href=""></a>
+        <a href=""></a>
     </div>
-</div>
+    <div class="main w-100 mx-auto my-4">
+        <div class="row">
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <td class="a"><b> Name </b></td>
+                        <td><b> Symbol </b></td>
+                        <td><b> Max Supply </b></td>
+                        <td><b> Circulating/Dolaşım Supply </b></td>
+                        <td><b> Total Supply </b></td>
+                        <td><b> PRICE USD </b></td>
+                        <td><b> Volume 24h </b></td>
+                        <td><b> Percent Change 24h </b></td>
+                        <td><b> Market Cap</b></td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for coin in data.data %}
+                    <tr>
+                        <td><b>{{ coin.name }}</b></td>
+                        <td><b>{{ coin.symbol }}</b></td>
+                        <td><b>{{ coin.max_supply }}</b></td>
+                        <td><b>{{ coin.circulating_supply }}</b></td>
+                        <td><b>{{ coin.total_supply }}</b></td>
+                        <td><b>{{ coin.quote.USD.price }}</b></td>
+                        <td><b>{{ coin.quote.USD.volume_24h }}</b></td>
+                        <td><b>{{ coin.quote.USD.percent_change_24h }}</b></td>
+                        <td><b>{{ coin.quote.USD.market_cap }}</b></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </body>
+
 </html>
-
-

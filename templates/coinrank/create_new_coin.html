@@ -1,13 +1,34 @@
 {% load static %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
+    <title>Add Coin</title>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="/trade">Trade</a>
+        <a href="/coinrank">CoinRanking</a>
+        <a href=""></a>
+    </div>
+    {% block content %}
     <form method='POST'>
         <h3> Add Coin </h3>
         {% csrf_token %}
         {{ create_new_coin }}
         <button type='submit' method='post'>Create</button>
-        
+
 
     </form>
-   <a class="button" href="/coinrank">Back</a>
+    <a class="button" href="/coinrank">Back</a>
 
-{% endblock content %}
+    {% endblock content %}
+</body>
+
+</html>
