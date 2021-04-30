@@ -1,0 +1,13 @@
+{% load static %}
+{% block content %}
+    <form method='POST'>
+        <h3> Add Coin </h3>
+        {% csrf_token %}
+        {{ create_new_coin }}
+        <button type='submit' method='post'>Create</button>
+        
+
+    </form>
+   <a class="button" href="/coinrank">Back</a>
+
+{% endblock content %}

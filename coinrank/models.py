@@ -8,7 +8,7 @@ class CoinRanking(models.Model):
     like = models.IntegerField(default = 0)
     dislike = models.IntegerField(default = 0)
     hodl = models.IntegerField(default = 0)
-    total_points = models.IntegerField(default = 1)
+    total_points = models.IntegerField(default = 0)
     comment = models.TextField()
         
     def __str__(self):
