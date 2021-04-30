@@ -27,6 +27,7 @@ def delete_coin(request):
 def like_counter(request, id):
     like_counter = CoinRanking.objects.get(id=id)
     like_counter.like += 1
+    like_counter.total_points = like_counter.like - like_counter.dislike
     like_counter.save()
     return redirect('/coinrank')
 
@@ -34,6 +35,7 @@ def like_counter(request, id):
 def dislike_counter(request, id):
     dislike_counter = CoinRanking.objects.get(id=id)
     dislike_counter.dislike += 1
+    dislike_counter.total_points = dislike_counter.like - dislike_counter.dislike
     dislike_counter.save()
     return redirect('/coinrank')
 

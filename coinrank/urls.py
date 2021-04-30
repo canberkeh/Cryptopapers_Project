@@ -9,5 +9,4 @@ urlpatterns = [
     path('coinrank/<str:id>/like', views.like_counter, name='like_counter'),
     path('coinrank/<str:id>/dislike', views.dislike_counter, name='dislike_counter'),
     path('coinrank/<str:id>/hodler', views.hodler_counter, name='hodler_counter'),
-
 ]
