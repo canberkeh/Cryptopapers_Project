@@ -23,6 +23,29 @@ def create_new_coin(request):
 def delete_coin(request):
     pass
 
+
+def like_counter(request, id):
+    like_counter = CoinRanking.objects.get(id=id)
+    like_counter.like += 1
+    like_counter.save()
+    return redirect('/coinrank')
+
+
+def dislike_counter(request, id):
+    dislike_counter = CoinRanking.objects.get(id=id)
+    dislike_counter.dislike += 1
+    dislike_counter.save()
+    return redirect('/coinrank')
+
+
+def hodler_counter(request, id):
+    hodler_counter = CoinRanking.objects.get(id=id)
+    hodler_counter.hodl += 1
+    hodler_counter.save()
+    return redirect('/coinrank')
+'''
+Bi metoda git modelin countunu cek arttir save et
+'''
 # def get(self, request, *args, **kwargs):
 #     photo = Photos.objects.get(pk=value)
 #     photo.likes_count += 1
