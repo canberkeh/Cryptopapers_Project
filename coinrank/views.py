@@ -45,23 +45,3 @@ def hodler_counter(request, id):
     hodler_counter.hodl += 1
     hodler_counter.save()
     return redirect('/coinrank')
-'''
-Bi metoda git modelin countunu cek arttir save et
-'''
-# def get(self, request, *args, **kwargs):
-#     photo = Photos.objects.get(pk=value)
-#     photo.likes_count += 1
-#     photo.save()
-#     return JsonResponse({'action': 'success'}, safe=False)
-# #  list = ToDoList(user=request.user)
-#         form = ToDoListForm(request.POST, instance=list)
-
-###############################################################333
-# def like_update(request):
-#     likes = CoinRanking.objects.all()
-#     # likes.like += 1
-#     likes.save()
-#     context = {'likes': likes}
-
-#     return render(request, 'coinrank/coinrank.html', context)
-
