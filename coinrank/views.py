@@ -23,7 +23,7 @@ def create_new_coin(request):
 def delete_coin(request):
     pass
 
-
+# Coinrank like counter, dislike counter, hodler counter. Includes total point calc.
 def like_counter(request, id):
     like_counter = CoinRanking.objects.get(id=id)
     like_counter.like += 1
@@ -47,6 +47,7 @@ def hodler_counter(request, id):
     return redirect('/coinrank')
 
 
+# Comments, comments like counter and comment dislike counter
 def comments(request, coin_id):
     comments = Comments.objects.filter(coin_name=coin_id).order_by('-like')
     return render(request, 'coinrank/comments.html', {'comments': comments})

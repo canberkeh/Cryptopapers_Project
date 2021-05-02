@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from coinrank.models import CoinRanking
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
@@ -30,7 +29,6 @@ router.register(r'WhitePapers', views.WhitePapersViewSet)
 urlpatterns = [
     path('asd', include('whitepapers_blog.urls')),
     path('admin/', admin.site.urls),
-    # path('coinrank/', include('coinrank.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/docs/', schema_view, name='api-doc'),
@@ -40,4 +38,5 @@ urlpatterns = [
     url(r'^test/', views.Vectorspace_Summerizer, name='test'),
     # url(r'^whitepapers_blog/', include('whitepapers_blog.urls')),
     url('coinrank/', include('coinrank.urls')),
+    url('whitepapers/', include('whitepapers.urls')),
 ]
