@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render
-from .models import CoinRanking
+from .models import CoinRanking, Comments
 from .forms.new_listing_form import CoinrankForm
 
 
 def coinrankindex(request):
-    coinrank_items = CoinRanking.objects.all()
+    coinrank_items = CoinRanking.objects.all().order_by('name')
     return render(request, 'coinrank/coinrank.html', {'coinrank_items': coinrank_items})
 
 
@@ -45,3 +45,22 @@ def hodler_counter(request, id):
     hodler_counter.hodl += 1
     hodler_counter.save()
     return redirect('/coinrank')
+
+
+def comments(request, coin_id):
+    comments = Comments.objects.filter(coin_name=coin_id).order_by('-like')
+    return render(request, 'coinrank/comments.html', {'comments': comments})
+
+
+def comment_like_counter(request, id):
+    comment = Comments.objects.get(id=id)
+    comment.like += 1
+    comment.save()
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def comment_dislike_counter(request, id):
+    comment_dislike_counter = Comments.objects.get(id=id)
+    comment_dislike_counter.dislike += 1
+    comment_dislike_counter.save()
+    return redirect(request.META['HTTP_REFERER'])

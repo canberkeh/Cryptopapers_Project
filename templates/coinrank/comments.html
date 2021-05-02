@@ -1,0 +1,29 @@
+{% extends "whitepapers_blog/base.html"%}
+{% block content %}
+<div class="main w-75 mx-auto my-4">
+    <div class="row">
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <td><b> Comments </b></td>
+                    <td><b> Likes </b></td>
+                    <td><b> Dislikes </b></td>
+                    <td><b> Create Date </b></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in comments %}
+                <tr>
+                    <td><b>{{ data.comment }}</b></td>
+                    <td><b>{{ data.like }} <a href="{% url 'coinrank:comment_like_counter' data.id %}">Like</a></b></td>
+                    <td><b>{{ data.dislike }} <a href="{% url 'coinrank:comment_dislike_counter' data.id %}">Dislike</a></b></td>
+                    <td><b>{{ data.create_date }} </b></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <td><a class="button" href="/coinrank">Back</a></td>
+
+</div>
+{% endblock %}
