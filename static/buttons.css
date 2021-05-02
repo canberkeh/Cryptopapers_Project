@@ -1,0 +1,31 @@
+.add-new {
+    font-family: 'Lucida Console';
+    text-transform: uppercase;
+    outline: 0;
+    background: #238c27;
+    width: 20%;
+    border: 0;
+    padding: 8px;
+    color:black;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.add-new-coin {
+    font-family: 'Lucida Console';
+    text-transform: uppercase;
+    outline: 0;
+    background: #238c27;
+    width: 8%;
+    border: 0;
+    padding: 4px;
+    color:black;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 25px;
+}

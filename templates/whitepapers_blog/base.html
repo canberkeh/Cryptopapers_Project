@@ -11,16 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'trading.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'buttons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'form.css' %}" />
     <title>Crypto Papers</title>
 </head>
 
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="/trade">Trade</a>
-        <a href="/coinrank">CoinRanking</a>
-        <a href="{% url 'admin:index' %}">Adminpage</a>
-        <a href="{% url 'whitepapers_blog:register'%}}">Register</a>
+        <div class="main w-75 mx-auto">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="/trade">Trade</a>
+            <a href="/coinrank">CoinRanking</a>
+            <a href="{% url 'admin:index' %}">Adminpage</a>
+            <a href="{% url 'whitepapers_blog:register'%}}">Register</a>
+        </div>
     </div>
     <div class="wrapper">
         {% block content %}

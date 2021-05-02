@@ -1,10 +1,16 @@
 {% extends "whitepapers_blog/base.html"%}
 {% block content %}
-<form method='POST'>
-    <h3> Add Coin </h3>
-    {% csrf_token %}
-    {{ create_new_coin }}
-    <button type='submit' method='post'>Create</button>
-</form>
-<a class="button" href="/coinrank">Back</a>
+<div class="main w-75 mx-auto my-4">
+    <form method='POST' class="form">
+        <h3><b>Add Coin</b></h3>
+        {% csrf_token %}
+        {{ create_new_coin.name }}
+        <br>
+        <button type='submit' method='post'><b>Create</b></button>
+        <br><br>
+    </form>
+    <div class="back">
+        <a href="/coinrank"><button class="back-button"><b>Back</b></button></a>
+    </div>
+</div>
 {% endblock content %}
