@@ -13,22 +13,23 @@
       - SQL_DATABASE=postgres
       - SQL_USER=postgres
       - SQL_PASSWORD=.env/PASSWORD
-      - SQL_HOST=db
+      - SQL_HOST=postgres
       - SQL_PORT=5432
       - DATABASE=postgres
       - DEBUG=1
       - SECRET_KEY=foo
     depends_on:
-      - db
-  db:
+      - postgres
+  postgres:
     image: postgres:latest
     restart: always
+    container_name: postgres
     ports:
       - "5432:5432"
     volumes:
-      - /data/postgresql:/var/lib/postgresql
-      - /data/postgresql/data:/var/lib/postgresql/data
+      - /data/postgresql/data:/var/lib/postgresql/data/:rw
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=.env/PASSWORD
-      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data/
+    

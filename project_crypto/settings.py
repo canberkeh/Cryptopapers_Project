@@ -96,7 +96,7 @@ DATABASES={
       'NAME':'postgres',
       'USER':'postgres',
       'PASSWORD':config('PASSWORD'),
-      'HOST':'db',
+      'HOST':'postgres',
       'PORT':'5432',
    }
 }
