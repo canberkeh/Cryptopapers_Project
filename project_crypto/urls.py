@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^user/auth/login?$', AuthUserAPIView.as_view(), name='login_user'),
     url(r'^trade/', views.get_prices, name='trade'),
+    url(r'^acc/', views.acc, name='acc'),
     url(r'^test/', views.Vectorspace_Summerizer, name='test'),
     # url(r'^whitepapers_blog/', include('whitepapers_blog.urls')),
     url('coinrank/', include('coinrank.urls')),

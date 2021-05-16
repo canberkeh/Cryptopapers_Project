@@ -62,8 +62,14 @@ def Vectorspace_Summerizer(request):
     print(data)
     return render(request, "whitepapers_blod/test.html", {"data": data})
     
+    
 def index(request):
     return render(request, 'whitepapers_blog/index.html')
+
+
+def acc(request):
+    return render(request, 'whitepapers_blog/acc.html')
+
 
 def register(request):  
 
