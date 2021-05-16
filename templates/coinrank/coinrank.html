@@ -22,7 +22,10 @@
                     <td><b>{{ rank.dislike }} </b>&nbsp;<a href="{% url 'coinrank:dislike_counter' rank.id %}"><img src="{% static 'icons/down.png' %}" alt="Oops! something went wrong!"></a></td>
                     <td><b>{{ rank.hodl }} </b>&nbsp;<a href="{% url 'coinrank:hodler_counter' rank.id %}"><img src="{% static 'icons/rocket.png' %}" alt="Oops! something went wrong!"></a></td>
                     <td><b><img src="{% static 'icons/sum.png' %}" alt="Oops! something went wrong!"><span>&nbsp; = &nbsp;</span> {{ rank.total_points }}</b></td>
-                    <td><b><span>&emsp; &ensp;</span><a href="{% url 'coinrank:comments' rank.id %}"><img src="{% static 'icons/comment.png' %}" alt="Oops! something went wrong!"></a></b></td>
+                    <td>
+                        <b><span>&emsp; &ensp;</span><a href="{% url 'coinrank:comments' rank.id %}"><img src="{% static 'icons/comment.png' %}" alt="Oops! something went wrong!"></a>
+                        </b>
+                    </td>
                 </tr>
                 {% endfor %}
 
@@ -31,5 +34,6 @@
     </div>
     <td><a href="/coinrank/create_new_coin"><button class="add-new"><b> Add New Coin +</b></button></a></td>
 </div>
+
 {% endblock %}
 

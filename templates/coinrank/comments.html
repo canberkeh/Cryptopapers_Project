@@ -9,6 +9,7 @@
                     <td><b> Likes </b></td>
                     <td><b> Dislikes </b></td>
                     <td><b> Create Date </b></td>
+                    <td><b> Coin Name </b></td>
                 </tr>
             </thead>
             <tbody>
@@ -16,15 +17,21 @@
                 {% for data in comments %}
                 <tr>
                     <td><b>{{ data.comment }}</b></td>
-                    <td><b>{{ data.like }} </b>&nbsp;<a href="{% url 'coinrank:comment_like_counter' data.id %}"><img src="{% static 'icons/up.png' %}" alt="Oops! something went wrong!"></a></td>
-                    <td><b>{{ data.dislike }} </b>&nbsp;<a href="{% url 'coinrank:comment_dislike_counter' data.id %}"><img src="{% static 'icons/down.png' %}" alt="Oops! something went wrong!"></a></td>
+                    <td><b>{{ data.like }} </b>&nbsp;<a href="{% url 'coinrank:comment_like_counter' data.id %}"><img
+                                src="{% static 'icons/up.png' %}" alt="Oops! something went wrong!"></a></td>
+                    <td><b>{{ data.dislike }} </b>&nbsp;<a
+                            href="{% url 'coinrank:comment_dislike_counter' data.id %}"><img
+                                src="{% static 'icons/down.png' %}" alt="Oops! something went wrong!"></a></td>
                     <td><b>{{ data.create_date }} </b></td>
+                    <td><b>&nbsp; {{ data.coin_name }} </b></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    <a href="{% url 'coinrank:add_comment' coin_id %}"><button class="add-new"><b>Add Comment</b></button></a>
     <a href="/coinrank"><button class="add-new"><b>Back</b></button></a>
+
 
 </div>
 {% endblock %}

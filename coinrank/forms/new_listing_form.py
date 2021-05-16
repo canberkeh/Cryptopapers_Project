@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import widgets
 from coinrank.models import CoinRanking
 
 class CoinrankForm(forms.ModelForm):

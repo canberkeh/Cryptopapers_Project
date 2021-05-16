@@ -32,4 +32,3 @@
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=.env/PASSWORD
       - PGDATA=/var/lib/postgresql/data/
-    

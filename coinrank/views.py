@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import CoinRanking, Comments
 from .forms.new_listing_form import CoinrankForm
+from .forms.comment_form import AddCommentForm
 
 
 def coinrankindex(request):
@@ -20,8 +21,25 @@ def create_new_coin(request):
         form = CoinrankForm()
     return render(request, 'coinrank/create_new_coin.html', {'create_new_coin': form })
 
+
+def add_comment(request, id):
+    comment_form = AddCommentForm
+    comments = Comments.objects.filter(coin_name=id)
+    if request.method == 'POST':
+        coin = CoinRanking.objects.get(id=id)
+        comment = Comments(coin_name=coin)
+        comment_form = AddCommentForm(request.POST, instance=comment)
+        if comment_form.is_valid():
+            comment_form.save()
+            return render(request, 'coinrank/comments.html', {'coin_id': id, 'comments': comments})
+    else:
+        comment_form = AddCommentForm()
+    return render(request, 'coinrank/add_comment.html', {'add_comment': comment_form})
+
+
 def delete_coin(request):
     pass
+
 
 # Coinrank like counter, dislike counter, hodler counter. Includes total point calc.
 def like_counter(request, id):
@@ -50,7 +68,7 @@ def hodler_counter(request, id):
 # Comments, comments like counter and comment dislike counter
 def comments(request, coin_id):
     comments = Comments.objects.filter(coin_name=coin_id).order_by('-like')
-    return render(request, 'coinrank/comments.html', {'comments': comments})
+    return render(request, 'coinrank/comments.html', {'coin_id': coin_id, 'comments': comments})
 
 
 def comment_like_counter(request, id):
@@ -65,3 +83,6 @@ def comment_dislike_counter(request, id):
     comment_dislike_counter.dislike += 1
     comment_dislike_counter.save()
     return redirect(request.META['HTTP_REFERER'])
+
+
+
