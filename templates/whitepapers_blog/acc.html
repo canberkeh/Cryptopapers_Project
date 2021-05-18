@@ -1,4 +1,87 @@
 {% extends "whitepapers_blog/base.html"%}
 {% block content %}
-TESTTTTT
+<div class="main w-75 mx-auto my-4">
+    <div class="row">
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <td><b> </b></td>
+                    <td><b>&emsp; Quantity </b></td>
+                    <td><b>&emsp; Cost </b></td>
+                    <td><b> </b></td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <form>
+                        <td><input type="number" step="any" name="" id="quantity" class="textBox" title="Numbers only!"
+                                required></td>
+                        <td><input type="number" step="any" name="" id="cost" class="textBox" title="Numbers only!"
+                                required></td>
+                        <td><input type="submit" name="Add" id="addButton" value="Add" class="add-new"
+                                onclick="addFunction()" style="width: 60%;">
+                    </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b> 1 </b></td>
+                    <td><label for=""></label></td>
+                    <td><label for=""> </label></td>
+                    <td><b> </b></td>
+                </tr>
+                <tr>
+                    <td><b> 2 </b></td>
+                    <td><label for=""> </label></td>
+                    <td><label for=""> </label></td>
+                    <td><b> </b></td>
+                </tr>
+                <tr>
+                    <td><b> 3 </b></td>
+                    <td><label for=""></label></td>
+                    <td><label for=""> </label></td>
+                    <td><b> </b></td>
+                </tr>
+                <tr>
+                    <td><b> 4 </b></td>
+                    <td><label for=""> </label></td>
+                    <td><label for=""> </label></td>
+                    <td><b> </b></td>
+                </tr>
+                <tr>
+                    <td><b> 5 </b></td>
+                    <td><label for=""> </label></td>
+                    <td><label for=""> </label></td>   
+                    <td><b> </b></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td><b> Total </b></td>
+                <td><b><label for="">quantity Total</label></b></td>
+                <td><b><label for="">Total Cost</label></b></td>
+                <td><b> Result <label for="" id="quantityResult"></label></b></td>
+            </tfoot>
+        </table>
+    </div>
+    <a href=" /"><button class="add-new" id="homeButton"><b>Home</b></button></a>
+</div>
+<script>
+    function addFunction() {
+        let quantityResult
+        quantityResult = document.getElementById('quantity').value;
+        console.log(quantityResult)
+        var totalCost = "NOT READY";
+        var result = "NOT READY";
+        // s1 = document.getElementById('quantity').value;
+        // s2 = document.getElementById('cost').value;
+        // document.getElementById('quantityResult').value = s1 / s2;
+        
+    }
+</script>
+<script>
+    let test
+    test = "test";
+    console.log(test)
+</script>
 {% endblock content %}
